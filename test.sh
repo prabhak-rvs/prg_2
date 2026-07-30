@@ -30,6 +30,12 @@ echo ""
 echo "Executing student SQL file..."
 
 mysql -h$HOST -u$USER -p$PASS < starter.sql
+echo "Checking created tables..."
+
+mysql -h$HOST -u$USER -p$PASS -e "
+USE CollegeDB;
+SHOW TABLES;
+"
 
 if [ $? -ne 0 ]; then
     echo "❌ SQL execution failed. Check your starter.sql"
